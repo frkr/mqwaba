@@ -1,0 +1,27 @@
+{
+  "name": "mqwaba",
+  "author": "frkr",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Consumes a message and Redirects to a Whatsapp Business API",
+  "keywords": [
+    "cloudflare",
+    "cloudflare-workers",
+    "worker",
+    "mq",
+    "message-queue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frkr/mqwaba"
+  },
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.x.x",
+    "typescript": "5.0.x",
+    "wrangler": "3.7.x"
+  }
+}

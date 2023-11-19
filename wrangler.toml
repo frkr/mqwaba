@@ -1,0 +1,37 @@
+name = "mqwaba"
+main = "src/index.ts"
+compatibility_date = "2022-07-07"
+workers_dev = true
+account_id = "4f296275a5fa3d5c36343151790e96d3"
+
+services = [
+    { binding = "grgpt", service = "grgpt" },
+    { binding = "julio", service = "julio" },
+    { binding = "ricardo", service = "ricardo" },
+    { binding = "bardi", service = "bardi" },
+    { binding = "gabriel", service = "gabriel" },
+    { binding = "mlearn", service = "mlearn" },
+]
+
+[[queues.consumers]]
+queue = "mqwaba"
+max_batch_size = 1
+
+[[r2_buckets]]
+preview_bucket_name = "mqpostr2"
+bucket_name = "mqpostr2"
+binding = "MQPOSTR2"
+
+[vars]
+CELL_TAKING = "109241255539874"
+CELL_TTT = "125175494009757"
+CELL_CASA = "116603624685685"
+CELL_TEST = "116324478044900"
+CELL_AGILISTA = "113901698479306"
+CELL_USA = "152416061283452"
+CELL_BARDI = "180216325166447"
+CELL_TMP = "149399338249678"
+CELL_VEEK = "153057757881230"
+CELL_DAVI2 = "184046208116878"
+CELL_VEEKS = "175025475690889"
+CELL_TMP2 = "160343020499275"
