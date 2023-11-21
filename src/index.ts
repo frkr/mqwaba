@@ -65,7 +65,7 @@ export default {
 
                     //region Bardi
                     try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === '149399338249678') {
+                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TMP) {
                             await (await env.bardi.fetch(url, post)).text();
                             continue;
                         }
@@ -75,7 +75,7 @@ export default {
 
                     //region PCAST
                     try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === '153057757881230') {
+                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_VEEK) {
                             await (await env.gabriel.fetch(url, post)).text();
                             continue;
                         }
