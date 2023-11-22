@@ -1,7 +1,7 @@
 name = "mqwaba"
 main = "src/index.ts"
-compatibility_date = "2022-07-07"
-workers_dev = true
+compatibility_date = "2023-09-14"
+workers_dev = false
 account_id = "4f296275a5fa3d5c36343151790e96d3"
 
 services = [
