@@ -1,7 +1,6 @@
 interface Env {
 
     MQWABA: Queue<any>;
-    MQPOSTR2: R2Bucket;
 
     grgpt: Fetcher;
     julio: Fetcher;

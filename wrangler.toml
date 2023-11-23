@@ -17,11 +17,6 @@ services = [
 queue = "mqwaba"
 max_batch_size = 1
 
-[[r2_buckets]]
-preview_bucket_name = "mqpostr2"
-bucket_name = "mqpostr2"
-binding = "MQPOSTR2"
-
 [vars]
 CELL_TAKING = "109241255539874"
 CELL_TTT = "125175494009757"

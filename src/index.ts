@@ -4,25 +4,18 @@ export default {
     async fetch(request: Request, env: Env, ctx: ExecutionContext) {
         return HTTP_UNPROCESSABLE_ENTITY();
     },
-    async queue(batch: MessageBatch<String>, env: Env): Promise<void> {
+    async queue(batch: MessageBatch<any>, env: Env): Promise<void> {
         for (const msg of batch.messages) {
             try {
 
-                const content = await (await env.MQPOSTR2.get(msg.body + ".txt")).text();
-
-                //region Decode
-                let data: any = null;
-                try {
-                    data = JSON.parse(content);
-                } catch (e) {
-                }
-
+                const data = msg.body;
                 let tipoMsg = null;
+                let content = null;
                 try {
                     tipoMsg = data.entry[0].changes[0].value.messages[0].type;
+                    content = JSON.stringify(msg.body);
                 } catch (e) {
                 }
-                //endregion
 
                 if (tipoMsg) {
                     const post = {
@@ -92,10 +85,6 @@ export default {
             } catch (e) {
                 console.error("queue", e, e.stack);
             } finally {
-                try {
-                    await env.MQPOSTR2.delete(msg.body + ".txt");
-                } catch (e) {
-                }
                 msg.ack();
             }
         }
