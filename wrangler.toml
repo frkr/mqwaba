@@ -10,6 +10,7 @@ services = [
     { binding = "ricardo", service = "ricardo" },
     { binding = "bardi", service = "bardi" },
     { binding = "gabriel", service = "gabriel" },
+    { binding = "allan", service = "allan" },
     { binding = "mlearn", service = "mlearn" },
 ]
 

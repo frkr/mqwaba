@@ -7,6 +7,7 @@ interface Env {
     ricardo: Fetcher;
     bardi: Fetcher;
     gabriel: Fetcher;
+    allan: Fetcher;
     mlearn: Fetcher;
 
     CELL_TAKING: string;

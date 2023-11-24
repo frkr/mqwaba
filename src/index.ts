@@ -66,6 +66,16 @@ export default {
                     }
                     //endregion
 
+                    //region allan
+                    try {
+                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TMP2) {
+                            await (await env.allan.fetch(url, post)).text();
+                            continue;
+                        }
+                    } catch (e3) {
+                    }
+                    //endregion
+
                     //region PCAST
                     try {
                         if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_VEEK) {
