@@ -46,6 +46,16 @@ export default {
                     }
                     //endregion
 
+                    //region Bruno
+                    try {
+                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_BARDI) {
+                            await (await env.bardi.fetch(url, post)).text();
+                            continue;
+                        }
+                    } catch (e3) {
+                    }
+                    //endregion
+
                     //region Testes DAVI
                     try {
                         if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TMP2) {

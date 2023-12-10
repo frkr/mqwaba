@@ -6,6 +6,7 @@ interface Env {
 
     grgpt: Fetcher;
     julio: Fetcher;
+    bardi: Fetcher;
 
     CELL_TAKING: string;
     CELL_TTT: string;
