@@ -46,50 +46,12 @@ export default {
                     }
                     //endregion
 
-                    //region Ricardo
                     try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_USA) {
-                            await (await env.ricardo.fetch(url, post)).text();
-                            continue;
-                        }
+                        await env.mqwgeral.send(data, {
+                            contentType: "json",
+                        });
                     } catch (e3) {
-                    }
-                    //endregion
-
-                    //region Bardi
-                    try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TMP) {
-                            await (await env.bardi.fetch(url, post)).text();
-                            continue;
-                        }
-                    } catch (e3) {
-                    }
-                    //endregion
-
-                    //region allan
-                    try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TMP2) {
-                            await (await env.allan.fetch(url, post)).text();
-                            continue;
-                        }
-                    } catch (e3) {
-                    }
-                    //endregion
-
-                    //region PCAST
-                    try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_VEEK) {
-                            await (await env.gabriel.fetch(url, post)).text();
-                            continue;
-                        }
-                    } catch (e3) {
-                    }
-                    //endregion
-
-                    try {
-                        await (await env.mlearn.fetch(url, post)).text();
-                    } catch (e3) {
-                        console.error("mlearn", e3, e3.stack);
+                        console.error("mqwgeral", e3, e3.stack);
                     }
                 }
             } catch (e) {

@@ -1,14 +1,10 @@
 interface Env {
 
     MQWABA: Queue<any>;
+    mqwgeral: Queue<any>;
 
     grgpt: Fetcher;
     julio: Fetcher;
-    ricardo: Fetcher;
-    bardi: Fetcher;
-    gabriel: Fetcher;
-    allan: Fetcher;
-    mlearn: Fetcher;
 
     CELL_TAKING: string;
     CELL_TTT: string;
