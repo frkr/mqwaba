@@ -46,6 +46,18 @@ export default {
                     }
                     //endregion
 
+                    //region Testes DAVI
+                    try {
+                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TMP2) {
+                            await env.wchatmq.send(data, {
+                                contentType: "json",
+                            });
+                            continue;
+                        }
+                    } catch (e3) {
+                    }
+                    //endregion
+
                     try {
                         await env.mqwgeral.send(data, {
                             contentType: "json",

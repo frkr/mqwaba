@@ -17,6 +17,10 @@ max_batch_size = 1
 queue = "mqwgeral"
 binding = "mqwgeral"
 
+[[queues.producers]]
+queue = "wchat"
+binding = "wchatmq"
+
 [vars]
 CELL_TAKING = "109241255539874"
 CELL_TTT = "125175494009757"

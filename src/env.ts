@@ -2,6 +2,7 @@ interface Env {
 
     MQWABA: Queue<any>;
     mqwgeral: Queue<any>;
+    wchatmq: Queue<any>;
 
     grgpt: Fetcher;
     julio: Fetcher;
