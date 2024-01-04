@@ -5,8 +5,6 @@ workers_dev = false
 account_id = "4f296275a5fa3d5c36343151790e96d3"
 
 services = [
-    { binding = "grgpt", service = "grgpt" },
-    { binding = "julio", service = "julio" },
     { binding = "bardi", service = "bardi" },
 ]
 
@@ -17,6 +15,10 @@ max_batch_size = 1
 [[queues.producers]]
 queue = "mqwgeral"
 binding = "mqwgeral"
+
+[[queues.producers]]
+queue = "mqgrgpt"
+binding = "mqgrgpt"
 
 [[queues.producers]]
 queue = "wchat"

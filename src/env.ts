@@ -2,10 +2,9 @@ interface Env {
 
     MQWABA: Queue<any>;
     mqwgeral: Queue<any>;
+    mqgrgpt: Queue<any>;
     wchatmq: Queue<any>;
 
-    grgpt: Fetcher;
-    julio: Fetcher;
     bardi: Fetcher;
 
     CELL_TAKING: string;

@@ -29,17 +29,9 @@ export default {
                     //region GRGPT
                     try {
                         if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TAKING) {
-                            await (await env.grgpt.fetch(url, post)).text();
-                            continue;
-                        }
-                    } catch (e3) {
-                    }
-                    //endregion
-
-                    //region Agilista - Julio
-                    try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_AGILISTA) {
-                            await (await env.julio.fetch(url, post)).text();
+                            await env.mqgrgpt.send(data, {
+                                contentType: "json",
+                            });
                             continue;
                         }
                     } catch (e3) {
@@ -50,18 +42,6 @@ export default {
                     try {
                         if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_BARDI) {
                             await (await env.bardi.fetch(url, post)).text();
-                            continue;
-                        }
-                    } catch (e3) {
-                    }
-                    //endregion
-
-                    //region Testes DAVI
-                    try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TMP2) {
-                            await env.wchatmq.send(data, {
-                                contentType: "json",
-                            });
                             continue;
                         }
                     } catch (e3) {
