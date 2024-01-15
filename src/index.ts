@@ -9,15 +9,12 @@ export default {
             try {
 
                 const data = msg.body;
-                let tipoMsg = null;
-                let content = null;
-                try {
-                    tipoMsg = data.entry[0].changes[0].value.messages[0].type;
-                    content = JSON.stringify(msg.body);
-                } catch (e) {
-                }
+                const waba = data.entry[0].changes[0].value.metadata.phone_number_id;
+                const tipoMsg = data.entry[0].changes[0].value.messages[0].type;
+                const content = JSON.stringify(msg.body);
 
-                if (tipoMsg) {
+
+                if (waba && tipoMsg && content) {
                     const post = {
                         method: 'POST',
                         headers: {
@@ -26,35 +23,25 @@ export default {
                         body: content,
                     };
 
-                    //region GRGPT
-                    try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_TAKING) {
-                            await env.mqgrgpt.send(data, {
-                                contentType: "json",
-                            });
-                            continue;
-                        }
-                    } catch (e3) {
-                    }
-                    //endregion
-
-                    //region Bruno
-                    try {
-                        if (data.entry[0].changes[0].value.metadata.phone_number_id === env.CELL_BARDI) {
-                            await (await env.bardi.fetch(url, post)).text();
-                            continue;
-                        }
-                    } catch (e3) {
-                    }
-                    //endregion
-
-                    try {
-                        await env.mqwgeral.send(data, {
+                    if (waba === env.CELL_TAKING) {
+                        await env.mqgrgpt.send(data, {
                             contentType: "json",
                         });
-                    } catch (e3) {
-                        console.error("mqwgeral", e3, e3.stack);
+                        continue;
                     }
+
+                    if (waba === env.CELL_BARDI) {
+                        try {
+                            await (await env.bardi.fetch(url, post)).text();
+                        } catch (e3) {
+                        }
+                        continue;
+                    }
+
+
+                    await env.mqwgeral.send(data, {
+                        contentType: "json",
+                    });
                 }
             } catch (e) {
                 console.error("queue", e, e.stack);
