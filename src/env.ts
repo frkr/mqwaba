@@ -6,6 +6,7 @@ interface Env {
     wchatmq: Queue<any>;
 
     bardi: Fetcher;
+    davi: Fetcher;
 
     CELL_TAKING: string;
     CELL_TTT: string;
@@ -19,5 +20,6 @@ interface Env {
     CELL_DAVI2: string;
     CELL_VEEKS: string;
     CELL_TMP2: string;
+    CELL_WURA: string;
 
 }

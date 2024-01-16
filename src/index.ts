@@ -37,6 +37,13 @@ export default {
                         }
                         continue;
                     }
+                    if (waba === env.CELL_WURA) {
+                        try {
+                            await (await env.davi.fetch(url, post)).text();
+                        } catch (e3) {
+                        }
+                        continue;
+                    }
 
 
                     await env.mqwgeral.send(data, {
