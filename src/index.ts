@@ -11,16 +11,14 @@ export default {
                 const data = msg.body;
                 const waba = data.entry[0].changes[0].value.metadata.phone_number_id;
                 const tipoMsg = data.entry[0].changes[0].value.messages[0].type;
-                const content = JSON.stringify(msg.body);
 
-
-                if (waba && tipoMsg && content) {
+                if (waba && tipoMsg) {
                     const post = {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: content,
+                        body: JSON.stringify(msg.body),
                     };
 
                     if (waba === env.CELL_TAKING) {
@@ -38,13 +36,11 @@ export default {
                         continue;
                     }
                     if (waba === env.CELL_WURA) {
-                        try {
-                            await (await env.davi.fetch(url, post)).text();
-                        } catch (e3) {
-                        }
+                        await env.wchatmq.send(data, {
+                            contentType: "json",
+                        });
                         continue;
                     }
-
 
                     await env.mqwgeral.send(data, {
                         contentType: "json",
