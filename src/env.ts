@@ -5,9 +5,6 @@ interface Env {
     mqgrgpt: Queue<any>;
     wchatmq: Queue<any>;
 
-    bardi: Fetcher;
-    davi: Fetcher;
-
     CELL_TAKING: string;
     CELL_TTT: string;
     CELL_CASA: string;

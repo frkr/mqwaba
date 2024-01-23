@@ -13,13 +13,6 @@ export default {
                 const tipoMsg = data.entry[0].changes[0].value.messages[0].type;
 
                 if (waba && tipoMsg) {
-                    const post = {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(msg.body),
-                    };
 
                     if (waba === env.CELL_TAKING) {
                         await env.mqgrgpt.send(data, {
@@ -28,14 +21,7 @@ export default {
                         continue;
                     }
 
-                    if (waba === env.CELL_BARDI) {
-                        try {
-                            await (await env.bardi.fetch(url, post)).text();
-                        } catch (e3) {
-                        }
-                        continue;
-                    }
-                    if (waba === env.CELL_WURA) {
+                    if (waba === env.CELL_WURA || waba === env.CELL_BARDI) {
                         await env.wchatmq.send(data, {
                             contentType: "json",
                         });
