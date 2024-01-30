@@ -6,6 +6,7 @@ interface Env {
     wchatmq: Queue<any>;
 
     CELL_TAKING: string;
+    CELL_TAKING2: string;
     CELL_TTT: string;
     CELL_CASA: string;
     CELL_TEST: string;

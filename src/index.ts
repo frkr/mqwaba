@@ -14,7 +14,7 @@ export default {
 
                 if (waba && tipoMsg) {
 
-                    if (waba === env.CELL_TAKING) {
+                    if (waba === env.CELL_TAKING || waba === env.CELL_TAKING2) {
                         await env.mqgrgpt.send(data, {
                             contentType: "json",
                         });
