@@ -6,7 +6,7 @@ workers_dev = true
 
 [[queues.consumers]]
 queue = "mqwaba"
-max_batch_timeout = 2
+max_batch_timeout = 5
 
 [[queues.producers]]
 queue = "mqwgeral"
@@ -17,12 +17,18 @@ queue = "mqgrgpt"
 binding = "mqgrgpt"
 
 [[queues.producers]]
+queue = "mqgrgptlong"
+binding = "mqgrgptlong"
+
+[[queues.producers]]
 queue = "wchat"
 binding = "wchatmq"
 
 [vars]
-CELL_TAKING = "207059989163241"
-CELL_TAKING2 = "116603624685685"
+CELL_TAKING = "248061641715590"
+CELL_TAKING_CASA = "116603624685685"
+CELL_TAKING_USA = "213128741889623"
+
 CELL_TTT = "125175494009757"
 CELL_CASA = "116603624685685"
 CELL_TEST = "116324478044900"

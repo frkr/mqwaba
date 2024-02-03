@@ -3,10 +3,12 @@ interface Env {
     MQWABA: Queue<any>;
     mqwgeral: Queue<any>;
     mqgrgpt: Queue<any>;
+    mqgrgptlong: Queue<any>;
     wchatmq: Queue<any>;
 
     CELL_TAKING: string;
-    CELL_TAKING2: string;
+    CELL_TAKING_CASA: string;
+    CELL_TAKING_USA: string;
     CELL_TTT: string;
     CELL_CASA: string;
     CELL_TEST: string;

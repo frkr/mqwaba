@@ -14,10 +14,19 @@ export default {
 
                 if (waba && tipoMsg) {
 
-                    if (waba === env.CELL_TAKING || waba === env.CELL_TAKING2) {
-                        await env.mqgrgpt.send(data, {
-                            contentType: "json",
-                        });
+                    if (waba === env.CELL_TAKING ||
+                        waba === env.CELL_TAKING_CASA ||
+                        waba === env.CELL_TAKING_USA
+                    ) {
+                        if (tipoMsg === "audio") {
+                            await env.mqgrgptlong.send(data, {
+                                contentType: "json",
+                            });
+                        } else {
+                            await env.mqgrgpt.send(data, {
+                                contentType: "json",
+                            });
+                        }
                         continue;
                     }
 
