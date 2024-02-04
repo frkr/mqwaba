@@ -1,6 +1,5 @@
 interface Env {
 
-    MQWABA: Queue<any>;
     mqwgeral: Queue<any>;
     mqgrgpt: Queue<any>;
     mqgrgptlong: Queue<any>;

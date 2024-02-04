@@ -1,7 +1,10 @@
+import {sleep} from "../../util-js/util";
+
 const url = 'https://mqwaba.mundial.workers.dev';
 
 export default {
     async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+        await sleep(5000);
         return HTTP_UNPROCESSABLE_ENTITY();
     },
     async queue(batch: MessageBatch<any>, env: Env): Promise<void> {
