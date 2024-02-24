@@ -33,12 +33,12 @@ export default {
                         continue;
                     }
 
-                    if (waba === env.CELL_WURA || waba === env.CELL_BARDI) {
-                        await env.wchatmq.send(data, {
-                            contentType: "json",
-                        });
-                        continue;
-                    }
+                    // if (waba === env.CELL_WURA || waba === env.CELL_BARDI) {
+                    //     await env.wchatmq.send(data, {
+                    //         contentType: "json",
+                    //     });
+                    //     continue;
+                    // }
 
                     await env.mqwgeral.send(data, {
                         contentType: "json",
