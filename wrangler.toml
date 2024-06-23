@@ -4,40 +4,15 @@ compatibility_date = "2024-01-12"
 account_id = "4f296275a5fa3d5c36343151790e96d3"
 workers_dev = true
 
-[[queues.consumers]]
-queue = "mqwaba"
-max_batch_size = 10
-max_batch_timeout = 2
-retry_delay = 60
+#[[queues.consumers]]
+#queue = "mqwaba"
+#max_batch_size = 10
+#max_batch_timeout = 2
+#retry_delay = 60
 
-[[queues.producers]]
-queue = "mqwgeral"
-binding = "mqwgeral"
-
-[[queues.producers]]
-queue = "mqgrgpt"
-binding = "mqgrgpt"
-
-[[queues.producers]]
-queue = "mqgrgptlong"
-binding = "mqgrgptlong"
-
-[[queues.producers]]
-queue = "wchat"
-binding = "wchatmq"
+#[[queues.producers]]
+#queue = "wchat"
+#binding = "wchatmq"
 
 [vars]
-CELL_TAKING = "248061641715590"
-CELL_TAKING_CASA = "116603624685685"
-CELL_TAKING_USA = "213128741889623"
-
-CELL_TTT = "125175494009757"
-CELL_CASA = "116603624685685"
-CELL_TEST = "116324478044900"
-CELL_AGILISTA = "113901698479306"
-CELL_BARDI = "175025475690889"
-CELL_TMP = "149399338249678"
-CELL_VEEK = "153057757881230"
-CELL_DAVI2 = "184046208116878"
-CELL_TMP2 = "160343020499275"
-CELL_WURA = "152416061283452"
+CELL_CASA = "160343020499275"

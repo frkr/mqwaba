@@ -9,6 +9,7 @@ export default {
     },
     async queue(batch: MessageBatch<any>, env: Env): Promise<void> {
         for (const msg of batch.messages) {
+            let sent = true;
             try {
 
                 const data = msg.body;
@@ -17,21 +18,18 @@ export default {
 
                 if (waba && tipoMsg) {
 
-                    if (waba === env.CELL_TAKING ||
-                        waba === env.CELL_TAKING_CASA ||
-                        waba === env.CELL_TAKING_USA
-                    ) {
-                        if (tipoMsg === "audio") {
-                            await env.mqgrgptlong.send(data, {
-                                contentType: "json",
-                            });
-                        } else {
-                            await env.mqgrgpt.send(data, {
-                                contentType: "json",
-                            });
-                        }
-                        continue;
-                    }
+                    // if (waba === env.CELL_TAKING) {
+                    //     if (tipoMsg === "audio") {
+                    //         await env.mqgrgptlong.send(data, {
+                    //             contentType: "json",
+                    //         });
+                    //     } else {
+                    //         await env.mqgrgpt.send(data, {
+                    //             contentType: "json",
+                    //         });
+                    //     }
+                    //     continue;
+                    // }
 
                     // if (waba === env.CELL_WURA || waba === env.CELL_BARDI) {
                     //     await env.wchatmq.send(data, {
@@ -47,7 +45,11 @@ export default {
             } catch (e) {
                 console.error("queue", e, e.stack);
             } finally {
-                msg.ack();
+                if (sent) {
+                    msg.ack();
+                } else {
+                    msg.retry();
+                }
             }
         }
     },
